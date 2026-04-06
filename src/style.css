@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom reusable classes start*/
+@layer components {
+  .btn-primary {
+    @apply text-xs md:text-base px-3 md:px-8 py-2 md:py-4 rounded-full uppercase text-white
+    bg-gradient-to-r from-[#8C01FA] to-black
+    hover:from-[#8C01FA] hover:to-[#8C01FA]
+    flex items-center gap-2 transition-all duration-300
+    border border-primary-light;
+  }
+
+  .btn-icon {
+    @apply transition-transform duration-300 group-hover:translate-x-1;
+  }
+}
+@layer components {
+  .btn-outline {
+    @apply text-xs md:text-base flex items-center gap-2 px-3 md:px-8 py-2 md:py-4 rounded-full uppercase
+    border border-primary-light text-white
+    transition-all duration-300;
+  }
+
+  .btn-icon {
+    @apply transition-transform duration-300 group-hover:translate-x-1;
+  }
+}
+
+@layer components {
+  .icon-circle {
+    @apply flex w-7 h-7 items-center justify-center rounded-full
+    text-pink-200
+    border border-white/20
+    bg-[linear-gradient(100deg,rgba(112,88,238,0.3),rgba(201,77,181,0.2),rgba(216,165,87,0.3))]
+    transition-all duration-300
+    hover:bg-none hover:border-transparent hover:scale-110;
+  }
+}
+/* Custom reusable classes end*/
+
+/* reset css start */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;  
+}
+body{
+  font-family: 'Poppins';
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+/* reset css end */
+.text-banner-subheading{
+      padding: 1rem 12rem;
+}
+/* Bottom left banner */
+.Left-banner {
+  position: absolute;
+  left: 0px;
+}
+/* Top right banner */
+.Right-banner {
+position: absolute;
+right: 0px;
+}
+.Right-banner,.Left-banner{
+ height: 100%;
+  object-fit: cover; /* image distort nahi hogi */
+}
+.hero-banner{
+    height: 545px;
+}
+.center-bnaner{
+        text-align: center;
+            width: 83%;
+    max-width: 1367px;
+    position: absolute;
+    top: 50%;
+    left: 37%;
+    transform: translate(-37%, -50%);
+    text-align: center;
+    overflow: hidden;
+        margin-top: 5rem;
+}
+.hero-bg {
+  background: #000 url("../src/assets/images/paymentbanner-darkbg.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 20s linear infinite;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+/* Pause marquee when hovering container */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Float up */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Float down */
+@keyframes floatDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+.float-up {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.float-down {
+  animation: floatDown 3s ease-in-out infinite;
+}
+.bg-gradient-custom .bg-card{
+       background: linear-gradient(270deg, rgb(48 39 58 / 99%) 26%, rgb(40 46 64) 49%);
+}
+.bg-gradient-custom {
+  background: linear-gradient(
+    90deg,
+    #458c82,
+    #3c1b54,
+    #18322f
+  );
+
+  background-size: 300% 100%;
+  animation: moveLR 8s linear infinite;
+
+  position: relative;
+  z-index: 0;
+}
+
+/* overlay */
+.bg-gradient-custom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    #000000 0%,
+    rgba(0, 0, 0, 0.6) 20%,
+    rgba(0, 0, 0, 0.6) 80%,
+    #000000 100%
+  );
+
+  z-index: 1; /* overlay above background */
+  pointer-events: none;
+}
+.bg-gradient-custom > * {
+  position: relative;
+  z-index: 2; /* above overlay */
+}
+@keyframes moveLR {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+/* banner animation css */
+
+/* Fade Up */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Left */
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide Right */
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Classes */
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease forwards;
+}
+.animate-left {
+  animation: slideLeft 1s ease forwards;
+}
+.animate-right {
+  animation: slideRight 1s ease forwards;
+}
+
+/* responsive css */
+@media (min-width: 768px) {
+    .md\:text-\[80px\] {
+        font-size: 80px!important;
+        line-height: 5rem;
+    }
+  }
+@media(max-width:767px){
+  .text-banner-subheading {
+    padding: 1rem 0rem!important;
+  }
+  .md\:text-\[80px\] {
+        font-size: 30px!important;
+  }
+}
+
+
+
+
+
+   
